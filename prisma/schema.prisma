@@ -59,7 +59,7 @@ model Generation {
   orgId String
 
   voiceId String?
-  voice   Voice?  @relation(fields: [voiceId], references: [id], onDelete: SetNull) // casecade lihle aste trr tya generatedVoice ni kelele srav voice delete honar And SetNull kele trr fkt generated Voice delete honar 
+  voice   Voice?  @relation(fields: [voiceId], references: [id], onDelete: SetNull) // casecade lihle aste trr tya generatedVoice ni kelele srav voice delete honar And SetNull kele trr fkt generated Voice delete honar  
 
   text              String
   voiceName         String

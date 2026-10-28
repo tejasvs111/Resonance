@@ -30,6 +30,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { UsageContainer } from "@/features/billing/components/usage-container";
+import { VoiceCreateDialog } from "@/features/voices/components/voice-create-dialog";
+import { useState } from "react";
 
 // Main reason for creating the interfaces are => typeScript type safety and better code organization.
 
@@ -96,6 +98,7 @@ export function DashboardSidebar() {
  
   const pathname = usePathname();
   const clerk = useClerk();
+  const [voiceDialogOpen, setVoiceDialogOpen] = useState(false);
 
   const mainMenuItems: MenuItem[] = [
     {
@@ -116,6 +119,7 @@ export function DashboardSidebar() {
     {
       title: "Voice cloning",
       icon: Volume2,
+      onClick: () => setVoiceDialogOpen(true),
     },
   ];
 
@@ -135,6 +139,8 @@ export function DashboardSidebar() {
 
   return (
     <>
+    <VoiceCreateDialog open={voiceDialogOpen} onOpenChange={setVoiceDialogOpen}/>
+
       <Sidebar collapsible="icon">
 
         <SidebarHeader className="flex flex-col gap-4 pt-4">
